@@ -1,0 +1,146 @@
+{
+  "cart": {
+    "label": "Cart"
+  },
+  "login": {
+    "heading": "My Account",
+    "action": "Sign In"
+  },
+  "loginModal": {
+    "title": "Sign In",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Mobile number",
+    "submit": "Sign in",
+    "close": "Close"
+  },
+  "menuTitle": "Main Menu",
+  "searchLabel": "Search",
+  "viewAll": "View All",
+  "searchModal": {
+    "title": "No results found",
+    "description": "Nothing here yet, please try again"
+  },
+  "locale": {
+    "language": "English",
+    "currencyIcon": "sicon-sar"
+  },
+  "addToCart": "Add to cart",
+  "currency": "SAR",
+  "checkout": "Checkout",
+  "emptyCart": "Your cart is empty",
+  "goToCheckout": "Go to cart",
+  "continueShopping": "Continue shopping",
+  "remove": "Remove",
+  "total": "Total",
+  "orderSuccess": "Your order was received successfully",
+  "backHome": "Back to home",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "catalogPage": {
+    "offersTitle": "Offers",
+    "emptyProducts": "No products",
+    "loadMore": "Load More",
+    "loadMoreError": "Failed to load more 😢",
+    "outOfStock": "Out of stock"
+  },
+  "cartPage": {
+    "cart": "Cart",
+    "breadcrumbHome": "Home",
+    "breadcrumbCart": "Shopping cart",
+    "lineTotal": "Subtotal",
+    "attachments": "Attachments",
+    "addNote": "Add note",
+    "attachFile": "Attach file",
+    "notePlaceholder": "Add notes",
+    "fileDropPlaceholder": "Drag and drop file here",
+    "browse": "Browse",
+    "orderSummary": "Order summary",
+    "productsSubtotal": "Products subtotal",
+    "couponLabel": "Have a discount code?",
+    "couponPlaceholder": "Enter discount code",
+    "applyCoupon": "Apply",
+    "completeOrder": "Complete order"
+  },
+  "cartToast": {
+    "addedTitle": "Added to shopping cart",
+    "duplicateTitle": "Product is already in the cart",
+    "viewCart": "View cart",
+    "completeOrder": "Complete order"
+  },
+  "close": "Close",
+  "checkoutPage": {
+    "emptyHint": "Your cart is empty",
+    "browseServices": "Return to home",
+    "successMessage": "We will contact you soon to complete your order."
+  },
+  "checkoutPhone": {
+    "orderTotal": "Order total",
+    "orderDetails": "Order details",
+    "haveCoupon": "Have a discount coupon?",
+    "couponPlaceholder": "Enter coupon code",
+    "loginTitle": "Sign in / Register",
+    "loginSubtitle": "Sign in or create a new account to complete your order.",
+    "phoneLabel": "Mobile number",
+    "phonePlaceholder": "5xxxxxxxx",
+    "continue": "Continue",
+    "login": "Sign in",
+    "invalidPhone": "Please enter a valid mobile number",
+    "paymentTitle": "Payment",
+    "paymentSubtitle": "Mada",
+    "edit": "Edit"
+  },
+  "checkoutOtp": {
+    "title": "Verification code",
+    "subtitle": "Sign in or create a new account to complete your order.",
+    "messageLine1": "A verification code is required to continue",
+    "messageLine2": "We sent a verification code to your phone",
+    "label": "Verification code",
+    "placeholder": "******",
+    "verify": "Verify",
+    "resend": "Resend"
+  },
+  "checkoutCardOtp": {
+    "messageLine1": "A verification code is required to complete payment",
+    "messageLine2": "We sent a verification code to the phone linked to your card"
+  },
+  "checkoutPayment": {
+    "greeting": "Welcome, {{name}}!",
+    "guestName": "Guest",
+    "methodMada": "Mada",
+    "methodCredit": "Mastercard / Visa",
+    "methodApple": "Apple Pay",
+    "methodStc": "STC Pay",
+    "methodBank": "Bank transfer",
+    "bankTransfer": "Bank transfer",
+    "cardDetails": "Card details",
+    "cardNumber": "Card number",
+    "expMonth": "MM",
+    "expYear": "YY",
+    "cardHolder": "Cardholder name",
+    "cardHolderPlaceholder": "Enter name",
+    "saveCard": "Securely save my card for next order",
+    "companyPurchase": "Purchase for a company",
+    "companyPurchaseHint": "If you represent a company, you can add its name, tax number, and commercial registration to include them on the invoice.",
+    "companyName": "Company or organization name",
+    "companyNamePlaceholder": "Enter company or organization name",
+    "companyCrn": "Commercial registration",
+    "companyCrnPlaceholder": "Enter the company commercial registration number",
+    "companyVat": "Tax number",
+    "companyVatPlaceholder": "Enter the company tax number",
+    "agreementLead": "By continuing, you",
+    "agreementText": "acknowledge that you have read the",
+    "privacyPolicy": "Privacy Policy",
+    "and": "and",
+    "terms": "Terms of Use",
+    "agreementEnd": " and agree to them.",
+    "submit": "Confirm payment",
+    "cardOtpSubtitle": "Verification code",
+    "registerError": "Could not create the order. Please try again."
+  },
+  "checkoutAdmin": {
+    "waiting": "Waiting for verification…",
+    "declined": "Request declined. Please try again."
+  }
+}

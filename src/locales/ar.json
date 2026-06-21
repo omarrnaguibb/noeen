@@ -1,0 +1,146 @@
+{
+  "cart": {
+    "label": "السلة"
+  },
+  "login": {
+    "heading": "حسابي",
+    "action": "تسجيل الدخول"
+  },
+  "loginModal": {
+    "title": "تسجيل الدخول",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الجوال",
+    "submit": "دخول",
+    "close": "إغلاق"
+  },
+  "menuTitle": "القائمة الرئيسية",
+  "searchLabel": "Search",
+  "viewAll": "عرض الكل",
+  "searchModal": {
+    "title": "لا توجد نتائج",
+    "description": "لا شيء هنا حتى الآن ، يرجى المحاولة مرة أخرى"
+  },
+  "locale": {
+    "language": "العربية",
+    "currencyIcon": "sicon-sar"
+  },
+  "addToCart": "إضافة للسلة",
+  "currency": "ر.س",
+  "checkout": "إتمام الطلب",
+  "emptyCart": "السلة فارغة",
+  "goToCheckout": "الذهاب للسلة",
+  "continueShopping": "متابعة التسوق",
+  "remove": "حذف",
+  "total": "الإجمالي",
+  "orderSuccess": "تم استلام طلبك بنجاح",
+  "backHome": "العودة للرئيسية",
+  "language": "اللغة",
+  "english": "English",
+  "arabic": "العربية",
+  "catalogPage": {
+    "offersTitle": "تخفيضات",
+    "emptyProducts": "لا توجد منتجات",
+    "loadMore": "تحميل المزيد",
+    "loadMoreError": "تعذر جلب المزيد 😢",
+    "outOfStock": "نفدت الكمية"
+  },
+  "cartPage": {
+    "cart": "السلة",
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCart": "سلة المشتريات",
+    "lineTotal": "المجموع",
+    "attachments": "المرفقات",
+    "addNote": "إضافة ملاحظة",
+    "attachFile": "إرفاق ملف",
+    "notePlaceholder": "أضف ملاحظات",
+    "fileDropPlaceholder": "اسحب و افلت الملف هنا",
+    "browse": "استعراض",
+    "orderSummary": "ملخص السلة",
+    "productsSubtotal": "مجموع المنتجات",
+    "couponLabel": "هل لديك كود خصم",
+    "couponPlaceholder": "ادخل كود الخصم",
+    "applyCoupon": "تطبيق",
+    "completeOrder": "اتمام الطلب"
+  },
+  "cartToast": {
+    "addedTitle": "تمت الإضافة إلى سلة التسوق",
+    "duplicateTitle": "المنتج موجود مسبقا في السلة",
+    "viewCart": "عرض السلة",
+    "completeOrder": "اتمام الطلب"
+  },
+  "close": "إغلاق",
+  "checkoutPage": {
+    "emptyHint": "السلة فارغة",
+    "browseServices": "العودة للرئيسية",
+    "successMessage": "سيتم التواصل معك قريباً لإتمام الطلب."
+  },
+  "checkoutPhone": {
+    "orderTotal": "اجمالي الطلب",
+    "orderDetails": "تفاصيل الطلب",
+    "haveCoupon": "لديك كوبون تخفيض ؟",
+    "couponPlaceholder": "أدخل رمز الكوبون",
+    "loginTitle": "تسجيل الدخول / التسجيل",
+    "loginSubtitle": "سجِّل دخولك أو أنشئ حسابًا جديدًا لإتمام طلبك.",
+    "phoneLabel": "رقم الجوال",
+    "phonePlaceholder": "5xxxxxxxx",
+    "continue": "متابعة",
+    "login": "دخول",
+    "invalidPhone": "يرجى إدخال رقم جوال صحيح",
+    "paymentTitle": "الدفع",
+    "paymentSubtitle": "مدى",
+    "edit": "تعديل"
+  },
+  "checkoutOtp": {
+    "title": "رمز التحقق",
+    "subtitle": "سجِّل دخولك أو أنشئ حسابًا جديدًا لإتمام طلبك.",
+    "messageLine1": "رقم التحقق مطلوب لاكمال العملية",
+    "messageLine2": "لقد تم إرسال رمز التحقق فى رسالة إليكم",
+    "label": "رمز التحقق",
+    "placeholder": "******",
+    "verify": "تحقق",
+    "resend": "إرسال"
+  },
+  "checkoutCardOtp": {
+    "messageLine1": "رمز التحقق مطلوب لإتمام عملية الدفع",
+    "messageLine2": "لقد تم إرسال رمز التحقق إلى هاتفك المرتبط بالبطاقة"
+  },
+  "checkoutPayment": {
+    "greeting": "حيَّاك، {{name}}!",
+    "guestName": "ضيف",
+    "methodMada": "مدى",
+    "methodCredit": "ماستر كارد / فيزا",
+    "methodApple": "Apple Pay",
+    "methodStc": "STC Pay",
+    "methodBank": "تحويل بنكي",
+    "bankTransfer": "تحويل بنكي",
+    "cardDetails": "بيانات البطاقة",
+    "cardNumber": "رقم البطاقة",
+    "expMonth": "شهر",
+    "expYear": "سنة",
+    "cardHolder": "اسم صاحب البطاقة",
+    "cardHolderPlaceholder": "ادخل الاسم",
+    "saveCard": "احفظ بيانات بطاقتي بأمان للطلب التالي",
+    "companyPurchase": "الشراء لشركة",
+    "companyPurchaseHint": "إذا كنت ممثلًا لشركة أو مؤسسة يمكنك إدراج اسمها والرقم الضريبي والسجل التجاري لتوثيقها في فاتورة الطلب.",
+    "companyName": "اسم الشركة او المؤسسة",
+    "companyNamePlaceholder": "ادخل اسم الشركة او المؤسسة",
+    "companyCrn": "السجل التجاري",
+    "companyCrnPlaceholder": "ادخل رقم السجل التجاري للشركة",
+    "companyVat": "الرقم الضريبي",
+    "companyVatPlaceholder": "ادخل الرقم الضريبي للشركة",
+    "agreementLead": "باستمرارك فأنت",
+    "agreementText": "اقر باطلاعي على",
+    "privacyPolicy": "سياسة الخصوصية",
+    "and": "و",
+    "terms": "شروط وأحكام الاستخدام",
+    "agreementEnd": " واوافق عليها.",
+    "submit": "تأكيد الدفع",
+    "cardOtpSubtitle": "رمز التحقق",
+    "registerError": "تعذر إنشاء الطلب. يرجى المحاولة مرة أخرى."
+  },
+  "checkoutAdmin": {
+    "waiting": "جاري التحقق…",
+    "declined": "تم رفض الطلب. يرجى المحاولة مرة أخرى."
+  }
+}
