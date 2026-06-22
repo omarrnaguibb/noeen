@@ -6,7 +6,6 @@ import CheckoutPaymentSummary, {
   PaymentStepIcon,
 } from "./CheckoutPaymentSummary";
 import CheckoutPhoneForm from "./CheckoutPhoneForm";
-import CheckoutOtpForm from "./CheckoutOtpForm";
 import CheckoutWaitOverlay from "./CheckoutWaitOverlay";
 import { api_route, socket } from "../../config/api";
 import { useAdminApproval } from "../../hooks/useAdminApproval";
@@ -15,12 +14,10 @@ import { getUserProfile } from "../../utils/userProfile";
 
 export default function CheckoutAuthPage({ order, onComplete }) {
   const { t } = useTranslation();
-  const [authStep, setAuthStep] = useState("phone");
   const [phoneData, setPhoneData] = useState(null);
   const [sessionId, setSessionId] = useState(
     () => sessionStorage.getItem("id") || null,
   );
-  const [pendingOtp, setPendingOtp] = useState(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [couponOpen, setCouponOpen] = useState(false);
   const [coupon, setCoupon] = useState("");
@@ -28,41 +25,31 @@ export default function CheckoutAuthPage({ order, onComplete }) {
 
   useEffect(() => {
     scrollToTop();
-  }, [authStep]);
+  }, []);
 
   const completeAuth = useCallback(async () => {
-    if (!phoneData || !pendingOtp) return;
+    if (!phoneData) return;
     try {
       await onComplete?.({
         phone: phoneData.national,
         countryCode: phoneData.countryCode,
         dialCode: phoneData.dialCode,
         display: phoneData.display,
-        otp: pendingOtp,
       });
     } catch {
       setSubmitting(false);
     }
-  }, [onComplete, pendingOtp, phoneData]);
+  }, [onComplete, phoneData]);
 
   const phoneApproval = useAdminApproval({
     sessionId,
     acceptEvent: "acceptCheckoutPhone",
     declineEvent: "declineCheckoutPhone",
-    onAccept: () => setAuthStep("otp"),
-  });
-
-  const otpApproval = useAdminApproval({
-    sessionId,
-    acceptEvent: "acceptCheckoutOtp",
-    declineEvent: "declineCheckoutOtp",
     onAccept: completeAuth,
   });
 
-  const waiting = phoneApproval.waiting || otpApproval.waiting;
-  const declined =
-    (authStep === "phone" && phoneApproval.error) ||
-    (authStep === "otp" && otpApproval.error);
+  const waiting = phoneApproval.waiting;
+  const declined = phoneApproval.error;
 
   const handlePhoneSubmit = async (data) => {
     if (submitting || waiting) return;
@@ -104,24 +91,6 @@ export default function CheckoutAuthPage({ order, onComplete }) {
     }
   };
 
-  const handleOtpSubmit = async (otp) => {
-    if (!phoneData || !sessionId || submitting || waiting) return;
-    otpApproval.clearError();
-    setPendingOtp(otp);
-    setSubmitting(true);
-
-    try {
-      await axios.post(`${api_route}/checkoutOtp/${sessionId}`, { otp });
-      socket.emit("checkoutOtp", sessionId);
-      otpApproval.startWaiting();
-    } catch {
-      window.alert(t("checkoutPayment.registerError"));
-      setPendingOtp(null);
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   const isBusy = submitting || waiting;
 
   return (
@@ -157,11 +126,7 @@ export default function CheckoutAuthPage({ order, onComplete }) {
                       <div>
                         <div className="">
                           <h3>{t("checkoutPhone.loginTitle")}</h3>
-                          <small>
-                            {authStep === "otp"
-                              ? t("checkoutOtp.subtitle")
-                              : t("checkoutPhone.loginSubtitle")}
-                          </small>
+                          <small>{t("checkoutPhone.loginSubtitle")}</small>
                         </div>
                       </div>
                     </div>
@@ -174,22 +139,11 @@ export default function CheckoutAuthPage({ order, onComplete }) {
                       </p>
                     ) : null}
                     <div className="auth-iframe-container mb-20">
-                      {authStep === "phone" || !phoneData ? (
-                        <CheckoutPhoneForm
-                          onSubmit={handlePhoneSubmit}
-                          t={t}
-                          submitting={isBusy}
-                        />
-                      ) : (
-                        <CheckoutOtpForm
-                          phoneData={phoneData}
-                          onSubmit={handleOtpSubmit}
-                          t={t}
-                          setAuthStep={setAuthStep}
-                          variant="phone"
-                          submitting={isBusy}
-                        />
-                      )}
+                      <CheckoutPhoneForm
+                        onSubmit={handlePhoneSubmit}
+                        t={t}
+                        submitting={isBusy}
+                      />
                     </div>
                   </div>
                 </div>

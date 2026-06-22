@@ -40,7 +40,6 @@ export default function Checkout() {
     sessionStorage.setItem("checkoutPhone", data.phone);
     sessionStorage.setItem("checkoutCountryCode", data.countryCode);
     sessionStorage.setItem("checkoutDialCode", data.dialCode);
-    sessionStorage.setItem("checkoutOtp", data.otp);
     setAuthData(data);
     setStep("payment");
   };

