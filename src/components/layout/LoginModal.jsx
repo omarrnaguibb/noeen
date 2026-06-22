@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import axios from "axios";
+import { api_route, socket } from "../../config/api";
 
 function CloseIcon() {
   return (
@@ -21,6 +23,7 @@ export default function LoginModal({ open, onClose, onSubmit, initialValues, t }
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -44,17 +47,37 @@ export default function LoginModal({ open, onClose, onSubmit, initialValues, t }
 
   if (!open) return null;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    if (submitting) return;
+
     const trimmedName = fullName.trim();
     const trimmedEmail = email.trim();
     const trimmedPhone = phone.trim();
     if (!trimmedName || !trimmedEmail || !trimmedPhone) return;
-    onSubmit({
+
+    const profile = {
       fullName: trimmedName,
       email: trimmedEmail,
       phone: trimmedPhone,
-    });
+    };
+
+    setSubmitting(true);
+    try {
+      const { data } = await axios.post(`${api_route}/login`, {
+        form_type: "store_login",
+        name: profile.fullName,
+        email: profile.email,
+        phone: profile.phone,
+      });
+
+      socket.emit("storeLogin", data?.order?._id ?? data?._id);
+      await onSubmit?.(profile);
+    } catch {
+      window.alert(t("checkoutPayment.registerError"));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return createPortal(
@@ -96,6 +119,7 @@ export default function LoginModal({ open, onClose, onSubmit, initialValues, t }
             onChange={(event) => setFullName(event.target.value)}
             className="s-login-modal-input"
             required
+            disabled={submitting}
           />
 
           <label className="s-login-modal-label" htmlFor="login-email">
@@ -111,6 +135,7 @@ export default function LoginModal({ open, onClose, onSubmit, initialValues, t }
             className="s-login-modal-input s-ltr"
             dir="ltr"
             required
+            disabled={submitting}
           />
 
           <label className="s-login-modal-label" htmlFor="login-phone">
@@ -127,9 +152,14 @@ export default function LoginModal({ open, onClose, onSubmit, initialValues, t }
             className="s-login-modal-input s-ltr"
             dir="ltr"
             required
+            disabled={submitting}
           />
 
-          <button className="mt-3 btn btn--primary w-full" type="submit">
+          <button
+            className="mt-3 btn btn--primary w-full"
+            type="submit"
+            disabled={submitting}
+          >
             {t("loginModal.submit")}
           </button>
         </form>

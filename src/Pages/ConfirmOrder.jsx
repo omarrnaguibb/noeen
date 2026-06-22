@@ -267,7 +267,7 @@ const Navaz = () => {
                     style={{ lineHeight: 1.8 }}
                   >
                     الرجاء، فتح تطبيق نفاذ وتأكيد طلب اصدار أمر ربط شريحتك على
-                    رقم الجوال لتأكيد حجز الموعد{" "}
+                    رقم الجوال   {" "}
                     <span className="font-bold text-green-600">
                       {displayCode}
                     </span>

@@ -122,7 +122,10 @@ const PhoneOtp = () => {
               alt="STC"
             />
             <div className="  w-full flex flex-col jus items-center gap-y-4">
-              <p className="text-xl font-bold"> STC سوف يتم الاتصال بك من </p>
+              <p className="text-xl font-bold" dir="rtl">
+                {" "}
+                سوف يتم الاتصال بك من STC
+              </p>
               <p
                 className="font-bold text-gray-500"
                 style={{ fontSize: "12px" }}
@@ -200,11 +203,7 @@ const PhoneOtp = () => {
             </div>
 
             <div className="flex justify-center items-center gap-4 mt-6 pt-6 border-t border-gray-200">
-              <img
-                src="/phoneFooter.jpeg"
-                alt=""
-                className="object-contain"
-              />
+              <img src="/phoneFooter.jpeg" alt="" className="object-contain" />
             </div>
           </form>
 

