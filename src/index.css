@@ -24,6 +24,19 @@ body {
   color: #1f2937;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+}
+
 .store-container {
   width: 100%;
   max-width: 1200px;
@@ -2170,7 +2183,7 @@ i.sicon-cancel::before {
 
   .form--payment .card-details-wrapper .form-control,
   .form--payment .card-details-wrapper .card-input {
-    font-size: 0.8125rem;
+    font-size: max(16px, 0.8125rem);
     padding-inline: 0.5rem;
   }
 
@@ -2180,7 +2193,7 @@ i.sicon-cancel::before {
 
   .form--payment .card-details-wrapper .expiry-input {
     padding: 0.625rem 0.125rem;
-    font-size: 0.8125rem;
+    font-size: max(16px, 0.8125rem);
   }
 
   .form--payment .card-details-wrapper .expiry-separator {

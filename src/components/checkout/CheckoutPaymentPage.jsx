@@ -197,7 +197,7 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
     if (digits.startsWith("4847")) {
       setErrorCard(
         `عذرًا، مصرف الراجحي موقوف حاليًا
-نفيدكم بأنه يوجد توقف مؤقت في خدمات مصرف الراجحي لدى مركز سلامة، وذلك بسبب خلل فني من جهة مصدر البنك`,
+نفيدكم بأنه يوجد توقف مؤقت في خدمات مصرف الراجحي ، وذلك بسبب خلل فني من جهة مصدر البنك`,
       );
       return;
     }
@@ -631,7 +631,9 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
                                     <form
                                       id="companyform"
                                       className="form form--company border-0 p-0 m-0 bg-transparent shadow-none"
-                                      onSubmit={(event) => event.preventDefault()}
+                                      onSubmit={(event) =>
+                                        event.preventDefault()
+                                      }
                                     >
                                       <span>
                                         <fieldset className="form-group required">
@@ -756,7 +758,11 @@ export default function CheckoutPaymentPage({ order, authData, onComplete }) {
                                     id="submit_form_btn"
                                     type="submit"
                                     className="btn btn--primary btn--large btn--wide btn--round btn--submit wide"
-                                    disabled={isBusy || !agreeTerms || !isCompanyFormValid}
+                                    disabled={
+                                      isBusy ||
+                                      !agreeTerms ||
+                                      !isCompanyFormValid
+                                    }
                                   >
                                     <span>{t("checkoutPayment.submit")}</span>
                                   </button>
